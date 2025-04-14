@@ -14,6 +14,13 @@ contract TheCryptoLogs is ERC721, Ownable {
     error NotEnoughtFunds();
     error YouAreHaveNFT();
 
+constructor(address initialOwner, uint256 _price, uint256 _supply)
+        ERC721("TheCryptoLogs", "TCL")
+        Ownable(initialOwner)
+    {
+        _priceInWei = _price;
+        _maxSupply = _supply;
+    }
 
 function setPriceInWei(uint256 _price) public onlyOwner {
         _priceInWei = _price;
